@@ -1,0 +1,623 @@
+<title>Planta Noble</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+  /* ============================================================
+     PLANTA NOBLE — Dirección "Monografía", ala de hoteles
+     Piano nobile · verde esmeralda bogotano · Caslon a gran escala
+     Hermana de Planta Alta: mismo sistema, otro material noble.
+     ============================================================ */
+
+  :root {
+    /* Tema claro — lobby de mármol y lino */
+    --marfil:          #F4F1E9;  /* muro de lobby, marfil cálido de lino */
+    --tinta:           #1D1C18;  /* casi negro, cálido */
+    --grafito:         #56544B;  /* texto secundario */
+    --niebla:          #6F6B5F;  /* rótulos, metadatos */
+    --junta:           #DDD8CA;  /* hairlines, juntas de mármol */
+    --esmeralda:       #175040;  /* verde esmeralda profundo — único acento */
+    --esmeralda-panel: #143C31;  /* panel de la ficha destacada */
+    --sobre-esmeralda: #EFEFE5;  /* texto sobre el panel esmeralda */
+    --sobre-esmeralda-suave: #A3C6B3; /* metadatos sobre el panel */
+
+    --serif-display: "Libre Caslon Display", "Big Caslon", "Didot", "Times New Roman", serif;
+    --serif-texto:   "Libre Caslon Text", Georgia, "Times New Roman", serif;
+    --grotesca:      "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --marfil:          #161815;
+      --tinta:           #ECEAE0;
+      --grafito:         #B5B3A6;
+      --niebla:          #918E82;
+      --junta:           #2E312B;
+      --esmeralda:       #A8CDBA;
+      --esmeralda-panel: #1D3A2F;
+      --sobre-esmeralda: #E9EFE7;
+      --sobre-esmeralda-suave: #95B9A6;
+    }
+  }
+  :root[data-theme="dark"] {
+    --marfil:          #161815;
+    --tinta:           #ECEAE0;
+    --grafito:         #B5B3A6;
+    --niebla:          #918E82;
+    --junta:           #2E312B;
+    --esmeralda:       #A8CDBA;
+    --esmeralda-panel: #1D3A2F;
+    --sobre-esmeralda: #E9EFE7;
+    --sobre-esmeralda-suave: #95B9A6;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--marfil);
+    color: var(--tinta);
+    font-family: var(--grotesca);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hall {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding-inline: clamp(1.25rem, 6vw, 4.5rem);
+  }
+
+  /* ---------- rótulos (labels) ---------- */
+  .rotulo {
+    font-family: var(--grotesca);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--niebla);
+  }
+
+  /* ---------- topbar ---------- */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    padding-block: 1.6rem;
+    border-bottom: 1px solid var(--junta);
+  }
+  .topbar > * { min-width: 0; }
+  .logo {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    color: var(--tinta);
+  }
+  .logo span { color: var(--esmeralda); }
+
+  /* ---------- hero · portada del folio ---------- */
+  .hero {
+    padding-block: clamp(5rem, 13vw, 10.5rem) clamp(4.5rem, 10vw, 8.5rem);
+  }
+  .hero-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+  .hero-cabecera > div { min-width: 0; }
+  .hero h1 {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(2.7rem, 8.4vw, 7rem);
+    line-height: 1.02;
+    margin: 1.4rem 0 0;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .hero h1 em {
+    font-family: var(--serif-texto);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--esmeralda);
+  }
+  .hero .lead {
+    font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--grafito);
+    max-width: 60ch;
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+  }
+  .hero .lead strong { color: var(--tinta); font-weight: 600; }
+
+  .figura-fachada { flex: 0 0 auto; }
+  .figura-fachada svg { display: block; max-width: 100%; height: auto; }
+  .figura-fachada .muro  { stroke: var(--grafito); stroke-width: 2.4; fill: none; }
+  .figura-fachada .trazo { stroke: var(--niebla);  stroke-width: 1.1; fill: none; }
+  .figura-fachada .astro { fill: var(--esmeralda); }
+  @media (max-width: 56rem) { .figura-fachada { display: none; } }
+
+  /* ---------- botones ---------- */
+  .cta-row {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: clamp(2.2rem, 4vw, 3rem);
+  }
+  .btn {
+    display: inline-block;
+    font-family: var(--grotesca);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 0.95rem 1.9rem;
+    background: var(--tinta);
+    color: var(--marfil);
+    border: 1px solid var(--tinta);
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+  .btn:hover { background: var(--esmeralda-panel); border-color: var(--esmeralda-panel); color: var(--sobre-esmeralda); }
+  .btn.ghost { background: transparent; color: var(--tinta); }
+  .btn.ghost:hover { background: transparent; color: var(--esmeralda); border-color: var(--esmeralda); }
+  .btn:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--esmeralda);
+    outline-offset: 3px;
+  }
+
+  /* ---------- folio · retícula asimétrica ---------- */
+  .folio {
+    padding-block: clamp(4.5rem, 9vw, 8rem);
+  }
+  .folio + .folio { border-top: 1px solid var(--junta); }
+  .folio-grid {
+    display: grid;
+    grid-template-columns: clamp(9rem, 16vw, 13rem) minmax(0, 1fr);
+    gap: 2rem clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+  @media (max-width: 56rem) {
+    .folio-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  h2 {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(1.85rem, 3.4vw, 2.9rem);
+    line-height: 1.12;
+    margin: -0.35rem 0 0.9rem;
+    text-wrap: balance;
+    max-width: 24ch;
+  }
+  .sub {
+    color: var(--grafito);
+    max-width: 62ch;
+    margin: 0 0 clamp(2.2rem, 4vw, 3.2rem);
+    font-size: 1rem;
+  }
+
+  /* ---------- patologías · registro de fuera de servicio ---------- */
+  .marks { border-top: 1px solid var(--junta); }
+  .mark {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 15rem) minmax(0, 1fr);
+    gap: 1rem 2.5rem;
+    padding-block: 1.7rem;
+    border-bottom: 1px solid var(--junta);
+    align-items: baseline;
+  }
+  .mark .tag {
+    font-family: var(--grotesca);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--esmeralda);
+    font-variant-numeric: tabular-nums;
+  }
+  .mark h3 {
+    font-family: var(--serif-texto);
+    font-weight: 700;
+    font-size: 1.22rem;
+    line-height: 1.25;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .mark p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--grafito);
+    max-width: 55ch;
+  }
+  @media (max-width: 48rem) {
+    .mark { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; }
+  }
+
+  /* ---------- planes · fichas del tarifario ---------- */
+  .planes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(16.5rem, 100%), 1fr));
+    gap: 1.25rem;
+  }
+  .plan {
+    border: 1px solid var(--junta);
+    background: var(--marfil);
+    padding: clamp(1.6rem, 3vw, 2.4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .plan .esc {
+    font-family: var(--grotesca);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--esmeralda);
+  }
+  .plan h3 {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 1.05;
+    margin: 0.1rem 0 0;
+    text-wrap: balance;
+  }
+  .plan .lema {
+    font-family: var(--serif-texto);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--grafito);
+    margin: 0;
+  }
+  .plan .precio {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .plan .precio small {
+    font-family: var(--grotesca);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--niebla);
+  }
+  .plan ul {
+    list-style: none;
+    margin: 0.4rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+    font-size: 0.92rem;
+    color: var(--grafito);
+  }
+  .plan ul li { padding-left: 1.25rem; position: relative; }
+  .plan ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--niebla);
+  }
+  .plan .para {
+    margin: auto 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--junta);
+    font-size: 0.85rem;
+    color: var(--niebla);
+  }
+
+  /* ficha destacada — el único momento saturado de la página */
+  .plan.destacado {
+    background: var(--esmeralda-panel);
+    border-color: var(--esmeralda-panel);
+    color: var(--sobre-esmeralda);
+  }
+  .plan.destacado .esc { color: var(--sobre-esmeralda-suave); }
+  .plan.destacado h3,
+  .plan.destacado .precio { color: var(--sobre-esmeralda); }
+  .plan.destacado .lema { color: var(--sobre-esmeralda-suave); }
+  .plan.destacado .precio small { color: var(--sobre-esmeralda-suave); }
+  .plan.destacado ul { color: var(--sobre-esmeralda); }
+  .plan.destacado ul li::before { color: var(--sobre-esmeralda-suave); }
+  .plan.destacado .para {
+    color: var(--sobre-esmeralda-suave);
+    border-top-color: var(--sobre-esmeralda-suave);
+  }
+
+  /* ---------- fases ---------- */
+  .fases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(11.5rem, 100%), 1fr));
+    gap: clamp(1.75rem, 4vw, 3rem);
+  }
+  .fase {
+    border-top: 1px solid var(--tinta);
+    padding-top: 1.1rem;
+  }
+  .fase .num {
+    font-family: var(--grotesca);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--esmeralda);
+    font-variant-numeric: tabular-nums;
+  }
+  .fase h3 {
+    font-family: var(--serif-texto);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0.5rem 0 0.4rem;
+    text-wrap: balance;
+  }
+  .fase p { margin: 0; font-size: 0.92rem; color: var(--grafito); }
+
+  /* ---------- por qué + cifras ---------- */
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+  @media (max-width: 64rem) {
+    .split { grid-template-columns: minmax(0, 1fr); }
+  }
+  .split .prosa p {
+    margin: 0 0 1.1rem;
+    font-size: 1rem;
+    color: var(--grafito);
+    max-width: 62ch;
+  }
+  .split .prosa p strong { color: var(--tinta); font-weight: 600; }
+
+  .cifras {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--junta);
+    border: 1px solid var(--junta);
+  }
+  .cifra { background: var(--marfil); padding: clamp(1.4rem, 2.5vw, 2rem); min-width: 0; }
+  .cifra b {
+    display: block;
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+    text-wrap: balance;
+  }
+  .cifra span {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--niebla);
+  }
+  @media (max-width: 26rem) {
+    .cifras { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  /* ---------- contacto · contraportada ---------- */
+  .contacto h2 {
+    font-size: clamp(2.1rem, 5.6vw, 4.4rem);
+    max-width: 20ch;
+    margin-top: 1.2rem;
+  }
+  .contacto .sub { margin-bottom: 0; }
+
+  /* ---------- colofón / rótulo del folio ---------- */
+  .colofon {
+    border-top: 1px solid var(--tinta);
+    margin-top: clamp(1rem, 3vw, 2rem);
+    padding-block: 1.6rem 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr));
+    gap: 1.5rem 2.5rem;
+  }
+  .colofon b {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: var(--grotesca);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--tinta);
+  }
+
+  /* ---------- secuencia de apertura (solo hero, orquestada) ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .rotulo,
+    .hero h1,
+    .hero .lead,
+    .hero .cta-row,
+    .figura-fachada {
+      opacity: 0;
+      transform: translateY(1.1rem);
+      animation: asciende 0.9s cubic-bezier(0.19, 0.62, 0.28, 1) forwards;
+    }
+    .hero .rotulo   { animation-delay: 0.05s; }
+    .hero h1        { animation-delay: 0.16s; }
+    .figura-fachada { animation-delay: 0.28s; }
+    .hero .lead     { animation-delay: 0.34s; }
+    .hero .cta-row  { animation-delay: 0.46s; }
+    @keyframes asciende {
+      to { opacity: 1; transform: none; }
+    }
+  }
+</style>
+<div class="hall">
+
+  <div class="topbar">
+    <div class="logo">PLANTA<span> NOBLE</span></div>
+    <div class="rotulo">Webs para hoteles de lujo · Bogotá D.C.</div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-cabecera">
+      <div>
+        <div class="rotulo">Folio 01 · Check-in</div>
+        <h1>Su lobby promete cinco estrellas. <em>Su web se queda en tres.</em></h1>
+      </div>
+      <div class="figura-fachada" aria-hidden="true">
+        <svg width="170" height="170" viewBox="0 0 200 200">
+          <rect class="muro" x="14" y="14" width="172" height="172"/>
+          <line class="trazo" x1="14" y1="72"  x2="186" y2="72"/>
+          <line class="trazo" x1="14" y1="132" x2="186" y2="132"/>
+          <rect class="trazo" x="37" y="34" width="18" height="22"/>
+          <rect class="trazo" x="91" y="34" width="18" height="22"/>
+          <rect class="trazo" x="145" y="34" width="18" height="22"/>
+          <path class="trazo" d="M33 124 V96 A13 13 0 0 1 59 96 V124"/>
+          <path class="trazo" d="M87 124 V96 A13 13 0 0 1 113 96 V124"/>
+          <path class="trazo" d="M141 124 V96 A13 13 0 0 1 167 96 V124"/>
+          <line class="trazo" x1="26" y1="124" x2="174" y2="124"/>
+          <rect class="trazo" x="88" y="148" width="24" height="38"/>
+          <line class="trazo" x1="82" y1="144" x2="118" y2="144"/>
+          <rect class="trazo" x="38" y="152" width="20" height="18"/>
+          <rect class="trazo" x="142" y="152" width="20" height="18"/>
+          <path class="astro" d="M100 132 L102.4 137.6 108 140 L102.4 142.4 100 148 97.6 142.4 92 140 97.6 137.6 Z"/>
+        </svg>
+      </div>
+    </div>
+    <p class="lead">Planta Noble hace <strong>diagnóstico, guía y rediseño web para hoteles cinco estrellas — y para los que juegan a seis — en Bogotá</strong>. Tratamos su sitio como ustedes tratan una habitación: se audita, se pone a punto y se entrega impecable, para que la primera impresión digital esté a la altura de la propiedad. Y para que la próxima reserva entre por su puerta, no por la de Booking.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:juanqriox@gmail.com?subject=Diagnóstico%20web%20—%20hotel">Pedir diagnóstico gratuito</a>
+      <a class="btn ghost" href="#planes">Ver tarifario</a>
+    </div>
+  </header>
+
+  <section class="folio">
+    <div class="folio-grid">
+      <div class="rotulo">Folio 02 · Habitaciones fuera de servicio</div>
+      <div>
+        <h2>Lo que encontramos en las webs de los hoteles bogotanos</h2>
+        <p class="sub">Como en la ronda de mantenimiento, marcamos lo que está fuera de servicio. Estas son las cinco fallas que más se repiten:</p>
+        <div class="marks">
+          <div class="mark"><span class="tag">OOO-01</span><h3>La reserva se va con comisión</h3><p>El motor de reservas no existe o está escondido, así que el huésped que ya los eligió termina reservando por una OTA — que se queda con comisiones típicas del 15–25% de cada noche.</p></div>
+          <div class="mark"><span class="tag">OOO-02</span><h3>Fotos de folleto, no de experiencia</h3><p>Lista de amenities y fotos genéricas de almohadas, cuando lo que vende es el desayuno con vista, el bar a medianoche, la llegada. La web enumera; no hace sentir la estadía.</p></div>
+          <div class="mark"><span class="tag">OOO-03</span><h3>Web de 2015 en un lobby impecable</h3><p>Mármol, flores frescas y servicio de guante blanco… y un sitio que se ve roto en el celular. La promesa de lujo se rompe antes del check-in.</p></div>
+          <div class="mark"><span class="tag">OOO-04</span><h3>Solo habla español</h3><p>El huésped internacional — el que paga tarifa completa y se queda más noches — llega a una web que no puede leer ni reservar. Se devuelve a Expedia.</p></div>
+          <div class="mark"><span class="tag">OOO-05</span><h3>Invisible en el mapa</h3><p>Google Business desactualizado, sin reseñas respondidas, ausentes de los metabuscadores. El huésped los busca por nombre y quien aparece primero es la OTA — cobrando por el clic que ya era suyo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="folio" id="planes">
+    <div class="folio-grid">
+      <div class="rotulo">Folio 03 · Tarifario</div>
+      <div>
+        <h2>Tres categorías de intervención</h2>
+        <p class="sub">Cada plan entrega algo usable por sí solo. Precios de lanzamiento en COP; se ajustan según propiedad y alcance en la reunión de check-in.</p>
+        <div class="planes">
+          <div class="plan">
+            <span class="esc">Habitación estándar · Diagnóstico</span>
+            <h3>La Auditoría Nocturna</h3>
+            <p class="lema">Como el night audit: se revisa todo, cuadre por cuadre.</p>
+            <p class="precio">$2,5 M <small>· entrega en 1 semana</small></p>
+            <ul>
+              <li>Auditoría completa del sitio actual: diseño, contenido, velocidad, móvil y SEO local</li>
+              <li>Recorrido de huésped incógnito por su embudo de reserva: dónde se pierde la reserva directa y a qué OTA se está yendo</li>
+              <li>Documento de hallazgos: qué corregir, en qué orden y por qué — con referencias de hoteles de lujo internacionales aterrizadas a su caso</li>
+              <li>Revisión de Google Business, Maps y presencia en metabuscadores</li>
+              <li>Sesión de 1 hora con gerencia para recorrer el documento</li>
+            </ul>
+            <p class="para">Para el hotel que tiene equipo de marketing propio y solo necesita saber qué está fuera de servicio.</p>
+          </div>
+          <div class="plan destacado">
+            <span class="esc">Suite · Intervención</span>
+            <h3>La Renovación</h3>
+            <p class="lema">La propiedad se mantiene; la experiencia se eleva.</p>
+            <p class="precio">$9 – 14 M <small>· 4–6 semanas</small></p>
+            <ul>
+              <li>Todo lo de La Auditoría Nocturna</li>
+              <li>Rediseño sobre su dominio actual: la experiencia como protagonista, el motor de reservas visible en cada pantalla y a un clic</li>
+              <li>Curaduría fotográfica y storytelling por experiencia — la estadía contada, no el inventario listado</li>
+              <li>SEO local Bogotá + Google Business Profile + presencia en metabuscadores</li>
+              <li>Bilingüe ES/EN y capacitación para que su equipo actualice tarifas, paquetes y temporadas solo</li>
+            </ul>
+            <p class="para">El plan que más piden — la operación ya es impecable; ahora la web la cuenta y la cobra.</p>
+          </div>
+          <div class="plan">
+            <span class="esc">Suite presidencial · Obra nueva</span>
+            <h3>La Gran Apertura</h3>
+            <p class="precio">Desde $25 M <small>· 8–10 semanas</small></p>
+            <ul>
+              <li>Sitio nuevo de cero: identidad digital, dirección de arte y arquitectura de información pensada para reservar, no solo para mirar</li>
+              <li>Sesión de fotografía y video de la propiedad con equipo aliado — habitaciones, gastronomía, servicio, ciudad</li>
+              <li>Narrativas por experiencia: suites, restaurante, eventos, spa — cada una como un caso, no como una galería</li>
+              <li>Trilingüe: ES/EN + el tercer idioma de su huésped (portugués o francés, según su mercado)</li>
+              <li>Motor de reservas integrado y sin fricción, metabuscadores conectados y 3 meses de acompañamiento post-apertura</li>
+            </ul>
+            <p class="para">Para el hotel boutique que abre, la propiedad que se reposiciona — el que va por la sexta estrella, esa que no existe en ningún reglamento pero se nota al entrar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="folio">
+    <div class="folio-grid">
+      <div class="rotulo">Folio 04 · Metodología</div>
+      <div>
+        <h2>Trabajamos como ustedes: con estándar de servicio</h2>
+        <p class="sub">El mismo rigor con el que su equipo alista una habitación, aplicado a su presencia digital.</p>
+        <div class="fases">
+          <div class="fase"><span class="num">F1</span><h3>Check-in</h3><p>Auditoría del sitio actual, del embudo de reserva, de las OTAs que se están quedando con sus noches y de cómo lo buscan sus huéspedes.</p></div>
+          <div class="fase"><span class="num">F2</span><h3>Diseño de experiencia</h3><p>Propuesta de estructura, referencias y dirección visual: cómo se va a sentir la estadía desde la primera pantalla. Se aprueba antes de construir.</p></div>
+          <div class="fase"><span class="num">F3</span><h3>Puesta a punto</h3><p>Diseño y construcción del sitio, con revisiones semanales — como el recorrido de gerencia: nada se abre sin pasar inspección.</p></div>
+          <div class="fase"><span class="num">F4</span><h3>Apertura</h3><p>Sitio al aire, motor de reservas probado, equipo capacitado y manual de uso. La llave maestra es de ustedes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="folio">
+    <div class="folio-grid">
+      <div class="rotulo">Folio 05 · Por qué Planta Noble</div>
+      <div class="split">
+        <div class="prosa">
+          <h2>Sabemos dónde se decide una reserva</h2>
+          <p><strong>El huésped los descubre en una OTA o en Instagram — pero antes de reservar, visita su web.</strong> Si lo que encuentra está a la altura, reserva directo y esa noche es 100% suya. Si no, vuelve a Booking, y la comisión — típicamente entre el 15 y el 25% — se paga en cada estadía, para siempre.</p>
+          <p>Planta Noble nace en Bogotá, hermana de Planta Alta y del mundo de las experiencias: sabemos leer una propiedad, elegir la foto que hace sentir la llegada y contar una estadía como se cuenta una gran noche — no como se lista un inventario de amenities.</p>
+          <p>Empezamos siempre por el diagnóstico gratuito de 20 minutos: si su web ya está reservando como debe, se lo decimos y no hay proyecto.</p>
+        </div>
+        <div class="cifras">
+          <div class="cifra"><b>15–25%</b><span>comisión típica de OTA en cada reserva que su web no captura</span></div>
+          <div class="cifra"><b>0%</b><span>comisión en cada reserva que entra por su propio sitio</span></div>
+          <div class="cifra"><b>20 min</b><span>de diagnóstico gratuito por videollamada</span></div>
+          <div class="cifra"><b>3 idiomas</b><span>ES/EN + el tercero que hable su huésped</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="folio contacto">
+    <div class="rotulo">Folio 06 · Contacto</div>
+    <h2>Mande su web. Nosotros mandamos el reporte de la auditoría.</h2>
+    <p class="sub">Escríbanos con el enlace de su sitio actual (o su perfil de Booking, si la web no es presentable) y agendamos el diagnóstico gratuito de 20 minutos.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:juanqriox@gmail.com?subject=Diagnóstico%20web%20—%20hotel">Escribir a Planta Noble</a>
+    </div>
+  </section>
+
+  <footer class="colofon">
+    <div class="rotulo">Propiedad<b>Planta Noble</b></div>
+    <div class="rotulo">Ubicación<b>Bogotá D.C., Colombia</b></div>
+    <div class="rotulo">Servicio<b>Webs para hoteles de lujo</b></div>
+    <div class="rotulo">Folio<b>01 de 01 · 2026</b></div>
+  </footer>
+
+</div>
