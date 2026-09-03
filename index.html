@@ -1,4 +1,5 @@
 <title>Planta Noble</title>
+<meta name="description" content="Diagnóstico, guía y rediseño web para hoteles de lujo en Madrid, París, Berlín, Londres y Bogotá. Reserva directa, sin comisiones de OTA. Facturación en COP y EUR.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   /* ============================================================
@@ -335,6 +336,36 @@
     border-top-color: var(--sobre-esmeralda-suave);
   }
 
+  /* ---------- selector de moneda del tarifario ---------- */
+  [hidden] { display: none !important; }
+  .moneda-toggle {
+    display: flex;
+    width: max-content;
+    border: 1px solid var(--junta);
+    margin: 0 0 1.4rem;
+  }
+  .moneda-toggle button {
+    font-family: var(--grotesca);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--niebla);
+    border: 0;
+    padding: 0.55rem 1.15rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .moneda-toggle button[aria-pressed="true"] {
+    background: var(--tinta);
+    color: var(--marfil);
+  }
+  .moneda-toggle button:focus-visible {
+    outline: 2px solid var(--esmeralda);
+    outline-offset: -2px;
+  }
+
   /* ---------- fases ---------- */
   .fases {
     display: grid;
@@ -462,7 +493,7 @@
 
   <div class="topbar">
     <div class="logo">PLANTA<span> NOBLE</span></div>
-    <div class="rotulo">Webs para hoteles de lujo · Bogotá D.C.</div>
+    <div class="rotulo">Webs para hoteles de lujo · Madrid · París · Berlín · Londres · Bogotá</div>
   </div>
 
   <header class="hero">
@@ -491,7 +522,7 @@
         </svg>
       </div>
     </div>
-    <p class="lead">Planta Noble hace <strong>diagnóstico, guía y rediseño web para hoteles cinco estrellas — y para los que juegan a seis — en Bogotá</strong>. Tratamos su sitio como ustedes tratan una habitación: se audita, se pone a punto y se entrega impecable, para que la primera impresión digital esté a la altura de la propiedad. Y para que la próxima reserva entre por su puerta, no por la de Booking.</p>
+    <p class="lead">Planta Noble hace <strong>diagnóstico, guía y rediseño web para hoteles cinco estrellas — y para los que juegan a seis — en Madrid, París, Berlín, Londres y Bogotá</strong>. Tratamos su sitio como ustedes tratan una habitación: se audita, se pone a punto y se entrega impecable, para que la primera impresión digital esté a la altura de la propiedad. Y para que la próxima reserva entre por su puerta, no por la de Booking.</p>
     <div class="cta-row">
       <a class="btn" href="mailto:juanqriox@gmail.com?subject=Diagnóstico%20web%20—%20hotel">Pedir diagnóstico gratuito</a>
       <a class="btn ghost" href="#planes">Ver tarifario</a>
@@ -502,13 +533,13 @@
     <div class="folio-grid">
       <div class="rotulo">Folio 02 · Habitaciones fuera de servicio</div>
       <div>
-        <h2>Lo que encontramos en las webs de los hoteles bogotanos</h2>
+        <h2>Lo que encontramos en las webs de los grandes hoteles</h2>
         <p class="sub">Como en la ronda de mantenimiento, marcamos lo que está fuera de servicio. Estas son las cinco fallas que más se repiten:</p>
         <div class="marks">
           <div class="mark"><span class="tag">OOO-01</span><h3>La reserva se va con comisión</h3><p>El motor de reservas no existe o está escondido, así que el huésped que ya los eligió termina reservando por una OTA — que se queda con comisiones típicas del 15–25% de cada noche.</p></div>
           <div class="mark"><span class="tag">OOO-02</span><h3>Fotos de folleto, no de experiencia</h3><p>Lista de amenities y fotos genéricas de almohadas, cuando lo que vende es el desayuno con vista, el bar a medianoche, la llegada. La web enumera; no hace sentir la estadía.</p></div>
           <div class="mark"><span class="tag">OOO-03</span><h3>Web de 2015 en un lobby impecable</h3><p>Mármol, flores frescas y servicio de guante blanco… y un sitio que se ve roto en el celular. La promesa de lujo se rompe antes del check-in.</p></div>
-          <div class="mark"><span class="tag">OOO-04</span><h3>Solo habla español</h3><p>El huésped internacional — el que paga tarifa completa y se queda más noches — llega a una web que no puede leer ni reservar. Se devuelve a Expedia.</p></div>
+          <div class="mark"><span class="tag">OOO-04</span><h3>Habla un solo idioma</h3><p>El huésped internacional — el que paga tarifa completa y se queda más noches — llega a una web que solo habla el idioma local y no puede leer ni reservar. Se devuelve a Expedia.</p></div>
           <div class="mark"><span class="tag">OOO-05</span><h3>Invisible en el mapa</h3><p>Google Business desactualizado, sin reseñas respondidas, ausentes de los metabuscadores. El huésped los busca por nombre y quien aparece primero es la OTA — cobrando por el clic que ya era suyo.</p></div>
         </div>
       </div>
@@ -520,13 +551,17 @@
       <div class="rotulo">Folio 03 · Tarifario</div>
       <div>
         <h2>Tres categorías de intervención</h2>
-        <p class="sub">Cada plan entrega algo usable por sí solo. Precios de lanzamiento en COP; se ajustan según propiedad y alcance en la reunión de check-in.</p>
+        <p class="sub">Cada plan entrega algo usable por sí solo. Se factura y se recibe pago en pesos colombianos o en euros, según su mercado; los precios son de lanzamiento y se ajustan según propiedad y alcance en la reunión de check-in.</p>
+        <div class="moneda-toggle" role="group" aria-label="Moneda del tarifario">
+          <button type="button" data-moneda="cop" aria-pressed="true">COP $</button>
+          <button type="button" data-moneda="eur" aria-pressed="false">EUR €</button>
+        </div>
         <div class="planes">
           <div class="plan">
             <span class="esc">Habitación estándar · Diagnóstico</span>
             <h3>La Auditoría Nocturna</h3>
             <p class="lema">Como el night audit: se revisa todo, cuadre por cuadre.</p>
-            <p class="precio">$2,5 M <small>· entrega en 1 semana</small></p>
+            <p class="precio"><span class="p-cop">$2,5 M COP</span><span class="p-eur" hidden>€ 550</span> <small>· entrega en 1 semana</small></p>
             <ul>
               <li>Auditoría completa del sitio actual: diseño, contenido, velocidad, móvil y SEO local</li>
               <li>Recorrido de huésped incógnito por su embudo de reserva: dónde se pierde la reserva directa y a qué OTA se está yendo</li>
@@ -540,12 +575,12 @@
             <span class="esc">Suite · Intervención</span>
             <h3>La Renovación</h3>
             <p class="lema">La propiedad se mantiene; la experiencia se eleva.</p>
-            <p class="precio">$9 – 14 M <small>· 4–6 semanas</small></p>
+            <p class="precio"><span class="p-cop">$9 – 14 M COP</span><span class="p-eur" hidden>€ 2.000 – 3.000</span> <small>· 4–6 semanas</small></p>
             <ul>
               <li>Todo lo de La Auditoría Nocturna</li>
               <li>Rediseño sobre su dominio actual: la experiencia como protagonista, el motor de reservas visible en cada pantalla y a un clic</li>
               <li>Curaduría fotográfica y storytelling por experiencia — la estadía contada, no el inventario listado</li>
-              <li>SEO local Bogotá + Google Business Profile + presencia en metabuscadores</li>
+              <li>SEO local de su ciudad + Google Business Profile + presencia en metabuscadores</li>
               <li>Bilingüe ES/EN y capacitación para que su equipo actualice tarifas, paquetes y temporadas solo</li>
             </ul>
             <p class="para">El plan que más piden — la operación ya es impecable; ahora la web la cuenta y la cobra.</p>
@@ -553,12 +588,12 @@
           <div class="plan">
             <span class="esc">Suite presidencial · Obra nueva</span>
             <h3>La Gran Apertura</h3>
-            <p class="precio">Desde $25 M <small>· 8–10 semanas</small></p>
+            <p class="precio"><span class="p-cop">Desde $25 M COP</span><span class="p-eur" hidden>Desde € 5.500</span> <small>· 8–10 semanas</small></p>
             <ul>
               <li>Sitio nuevo de cero: identidad digital, dirección de arte y arquitectura de información pensada para reservar, no solo para mirar</li>
               <li>Sesión de fotografía y video de la propiedad con equipo aliado — habitaciones, gastronomía, servicio, ciudad</li>
               <li>Narrativas por experiencia: suites, restaurante, eventos, spa — cada una como un caso, no como una galería</li>
-              <li>Trilingüe: ES/EN + el tercer idioma de su huésped (portugués o francés, según su mercado)</li>
+              <li>Trilingüe: ES/EN + el tercer idioma de su huésped (francés, alemán o portugués, según su mercado)</li>
               <li>Motor de reservas integrado y sin fricción, metabuscadores conectados y 3 meses de acompañamiento post-apertura</li>
             </ul>
             <p class="para">Para el hotel boutique que abre, la propiedad que se reposiciona — el que va por la sexta estrella, esa que no existe en ningún reglamento pero se nota al entrar.</p>
@@ -591,7 +626,7 @@
         <div class="prosa">
           <h2>Sabemos dónde se decide una reserva</h2>
           <p><strong>El huésped los descubre en una OTA o en Instagram — pero antes de reservar, visita su web.</strong> Si lo que encuentra está a la altura, reserva directo y esa noche es 100% suya. Si no, vuelve a Booking, y la comisión — típicamente entre el 15 y el 25% — se paga en cada estadía, para siempre.</p>
-          <p>Planta Noble nace en Bogotá, hermana de Planta Alta y del mundo de las experiencias: sabemos leer una propiedad, elegir la foto que hace sentir la llegada y contar una estadía como se cuenta una gran noche — no como se lista un inventario de amenities.</p>
+          <p>Planta Noble nace en Bogotá y trabaja a los dos lados del Atlántico — Madrid, París, Berlín, Londres y Bogotá — hermana de Planta Alta y del mundo de las experiencias: sabemos leer una propiedad, elegir la foto que hace sentir la llegada y contar una estadía como se cuenta una gran noche — no como se lista un inventario de amenities.</p>
           <p>Empezamos siempre por el diagnóstico gratuito de 20 minutos: si su web ya está reservando como debe, se lo decimos y no hay proyecto.</p>
         </div>
         <div class="cifras">
@@ -613,9 +648,23 @@
     </div>
   </section>
 
+  <script>
+    (function () {
+      var botones = document.querySelectorAll('.moneda-toggle button');
+      function fijarMoneda(m) {
+        document.querySelectorAll('.p-cop').forEach(function (el) { el.hidden = m !== 'cop'; });
+        document.querySelectorAll('.p-eur').forEach(function (el) { el.hidden = m !== 'eur'; });
+        botones.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.moneda === m)); });
+      }
+      botones.forEach(function (b) {
+        b.addEventListener('click', function () { fijarMoneda(b.dataset.moneda); });
+      });
+    })();
+  </script>
+
   <footer class="colofon">
     <div class="rotulo">Propiedad<b>Planta Noble</b></div>
-    <div class="rotulo">Ubicación<b>Bogotá D.C., Colombia</b></div>
+    <div class="rotulo">Plazas<b>Madrid · París · Berlín · Londres · Bogotá</b></div>
     <div class="rotulo">Servicio<b>Webs para hoteles de lujo</b></div>
     <div class="rotulo">Folio<b>01 de 01 · 2026</b></div>
   </footer>
