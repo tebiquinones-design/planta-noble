@@ -964,8 +964,70 @@
     </div>
   </section>
 
+  <style>
+    /* ---------- Folio 07 · Casas amigas — vitrina metálica en movimiento ---------- */
+    .vitrina-cinta { overflow: hidden; margin-top: clamp(1.8rem, 4vw, 2.8rem); }
+    .vitrina-fila {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: vitrina-rodar 75s linear infinite; /* ambiental, corre siempre */
+    }
+    .vitrina-fila:hover { animation-play-state: paused; }
+    @keyframes vitrina-rodar { to { transform: translateX(-50%); } }
+    .vitrina-fila img {
+      height: clamp(96px, 16vw, 150px);
+      width: auto;
+      border-radius: 10px;
+      border: 1px solid var(--junta);
+      display: block;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .vitrina-fila img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 26px rgba(198, 164, 94, 0.22);
+    }
+    .colofon a { color: var(--esmeralda); text-decoration: none; }
+    .colofon a:hover { text-decoration: underline; }
+  </style>
+
+  <section class="folio">
+    <div class="rotulo">Folio 07 · Casas amigas</div>
+    <h2>Casas que ya nos abrieron la puerta</h2>
+    <p class="sub">Antes de diseñar webs de hoteles, este equipo produjo noches y experiencias en hoteles, clubes y teatros de Madrid, París y Londres. Estas casas ya confiaron:</p>
+    <div class="vitrina-cinta">
+      <div class="vitrina-fila">
+        <img src="https://tebiquinones.com/collabs-img/le-grand-mazarin.jpg" alt="Le Grand Mazarin, París Le Marais" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/nh-collection.jpg" alt="NH Collection Hotels &amp; Resorts" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/casa-suecia.jpg" alt="Casa Suecia, Madrid" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/hotel-marquise.jpg" alt="Hotel Marquise" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/the-scotch.jpg" alt="The Scotch of St. James, Londres" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/b-london.jpg" alt="B London" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/silencio.jpg" alt="Silencio, París" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/victoria-paris.jpg" alt="Victoria, París" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/larc-paris.jpg" alt="L'Arc, París" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/alma-paris.jpg" alt="Alma, París" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/florida-park.jpg" alt="Florida Park, Madrid" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/hipodromo-zarzuela.jpg" alt="Hipódromo de la Zarzuela, Madrid" loading="lazy">
+        <!-- duplicado para el loop infinito -->
+        <img src="https://tebiquinones.com/collabs-img/le-grand-mazarin.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/nh-collection.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/casa-suecia.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/hotel-marquise.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/the-scotch.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/b-london.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/silencio.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/victoria-paris.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/larc-paris.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/alma-paris.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/florida-park.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="https://tebiquinones.com/collabs-img/hipodromo-zarzuela.jpg" alt="" aria-hidden="true" loading="lazy">
+      </div>
+    </div>
+  </section>
+
   <section class="folio contacto">
-    <div class="rotulo">Folio 07 · Contacto</div>
+    <div class="rotulo">Folio 08 · Contacto</div>
     <h2>Mande su web. Nosotros mandamos el reporte de la auditoría.</h2>
     <p class="sub">Escríbanos con el enlace de su sitio actual (o su perfil de Booking, si la web no es presentable) y agendamos el diagnóstico gratuito de 20 minutos.</p>
     <div class="cta-row">
@@ -991,6 +1053,7 @@
     <div class="rotulo">Propiedad<b>Planta Noble</b></div>
     <div class="rotulo">Plazas<b>Madrid · París · Berlín · Londres · Bogotá</b></div>
     <div class="rotulo">Servicio<b>Webs para hoteles de lujo</b></div>
+    <div class="rotulo">Constelación<b><a href="https://estebi.com">Tebi Quiñones</a> · <a href="https://estebi.company">Hoteles</a> · <a href="https://planta-alta.vercel.app">Planta Alta</a></b></div>
     <div class="rotulo">Folio<b>01 de 01 · 2026</b></div>
   </footer>
 
