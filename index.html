@@ -185,9 +185,9 @@
   }
 
   .hall {
-    max-width: 76rem;
+    max-width: 82rem;
     margin: 0 auto;
-    padding-inline: clamp(1.25rem, 6vw, 4.5rem);
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
   }
 
   /* ---------- rótulos (labels) ---------- */
@@ -332,8 +332,9 @@
   .folio + .folio { border-top: 1px solid var(--junta); }
   .folio-grid {
     display: grid;
-    grid-template-columns: clamp(9rem, 16vw, 13rem) minmax(0, 1fr);
-    gap: 2rem clamp(2.5rem, 6vw, 5rem);
+    /* rótulo angosto, contenido ancho — el tríptico respira */
+    grid-template-columns: clamp(5.5rem, 8vw, 7.5rem) minmax(0, 1fr);
+    gap: 2rem clamp(1.5rem, 3vw, 2.75rem);
     align-items: start;
   }
   @media (max-width: 56rem) {
@@ -406,10 +407,10 @@
   .plan {
     border: 1px solid var(--junta-suave);
     background: var(--panel);
-    padding: clamp(1.6rem, 3vw, 2.4rem);
+    padding: clamp(1.3rem, 2.2vw, 1.9rem);
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.75rem;
     transition: border-color 0.3s ease;
   }
   .plan:hover { border-color: var(--junta); }
@@ -452,11 +453,11 @@
   }
   .plan ul {
     list-style: none;
-    margin: 0.4rem 0 0;
+    margin: 0.35rem 0 0;
     padding: 0;
     display: grid;
-    gap: 0.55rem;
-    font-size: 0.92rem;
+    gap: 0.45rem;
+    font-size: 0.9rem;
     color: var(--grafito);
   }
   .plan ul li { padding-left: 1.25rem; position: relative; }
